@@ -6,62 +6,55 @@ let edpoint;
 let allTheMovies;
 const container = document.querySelector('.show_results');
 
-// document.querySelector('.movie').addEventListener('click',createMovieDetail); 
-
 const  makeSearch = title =>{
-    $.ajax({
-        dataType : "json",
-        url:  `${url}&s=${title}&type=movie`
-      }).done(getResults).fail(function (status) {
-        console.log("error");
-      })
-
+      let requestUrl = `${url}&s=${title}&type=movie`
+      fetch(requestUrl)
+      .then(response => response.json())  
+      .then(results => getResults(results))   
+      .catch(err => console.log('error', err)); 
 }
 
 const getResults = response => {
   console.log(response)
-  container.innerHTML = ''
+  let containerCounter = document.querySelector('.counter')
+    containerCounter.innerHTML = 0; 
+    container.innerHTML = ''
   if(response.Response == 'False'){
+    containerCounter.innerHTML = 0;
+    container.innerHTML = 'No encontramos resultados compatibles con tu búsqueda, vuelve a intentarlo'
     return;
   }
 
   allTheMovies = response.Search;
-  let algo = response.Search.map( function(currentMovie,index){
-    let sorprise = new Movie(currentMovie);
+  
+  containerCounter.innerHTML = allTheMovies.length; 
 
-    // console.log(index)
-    let element = `<li class="movie" data-index = "${index}">
-            <img class= "poster" src="${sorprise.poster()}">
-            <p class="title">${sorprise.getTitle()}</p>
-            <p class="year">${sorprise.year()}</p>
+  let createListResults = response.Search.map( function(currentMovie,index){
+    let objMovie = new Movie(currentMovie);
+    let element = `<li class="movie">
+            <img class= "poster" src="${objMovie.poster()}">
+            <p class="title">${objMovie.getTitle()}</p>
+            <p class="year">${objMovie.year()}</p>
       </li>`
 
       container.innerHTML += element
-      // 
       listEvents();
   });
-  
-  // this.click = this.createMovieDetail.bind(this);
-  // document.querySelector('.movie').addEventListener('click',createMovieDetail); 
 };
-
 
 let listEvents = () => { 
   let elements = document.querySelectorAll('.movie');
-  // console.log(elements)
   for (let i = 0; i < elements.length; i++) {
     const container = elements[i];
-    
     container.addEventListener('click',() => createMovieDetail(event,i)); 
   }
 }
 
 let createMovieDetail = (e,i) =>{
-  console.log(i)
   for (let index = 0; index < allTheMovies.length; index++) {
     if (index === i) {
       let focusMovie =  allTheMovies[index];
-      console.log(focusMovie)
+      // console.log(focusMovie)
       getDetail(focusMovie.imdbID);
       return focusMovie;
     }

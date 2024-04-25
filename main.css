@@ -1,7 +1,8 @@
 
 body{
     margin : 0;
-    background-color:rgb(43, 39, 43)
+    background-color:rgb(43, 39, 43);
+    font-family: Courier, "Lucida Console", monospace;
 }
 header {
     align-items: center;
@@ -10,37 +11,53 @@ header {
     display: flex;
     height: 70px;
     justify-items: center;
-    width: 120%;
-    background-color:rgb(179, 60, 183);
+    width: 100%;
+    background-color:#DDA0DD;
     margin: 0;
     padding: 0;
+    justify-content: space-between;
     /* position: fixed; */
 }
 h1 { 
     color:rgb(249, 247, 249); 
     display: block;
-    font-family: monospace;
     font-size: 25px;
+    padding-left: 10px;
 }
 
 .search{
     border-radius: 5px;
     margin-left: 50px;
-    width: 250px;
+    width: 350px;
+    height: 40px;
+    background-color: rgb(238, 225, 238);
+    border: none;
+    font-size: 17px;
 }
+
+.search::-webkit-search-cancel-button{
+    display: none;
+}
+
+.count_search{
+    color:aliceblue;
+    font-size: 18px;
+    padding-right: 10px;
+}
+.count_search> span{
+    font-weight: bold;
+}
+
 .container_results{
     width: 100%;
     height: 100%;
-    /* margin-left: 40px; */
     background-color:#23252A;
     display: flex;
     justify-content: center;
     align-content: space-between;
     justify-items: flex-end;
     align-items: center;
-    /* align-items: center; */
     justify-items: center;
-    /* position: absolute; */
     overflow: hidden;
     border-radius: 5px; 
 }
@@ -52,7 +69,6 @@ h1 {
     margin-right: 20px;
     background-color:#2B3036;
     display: flex;
-    /* position: absolute; */
     border-radius: 5px;
     list-style: none;
     flex-direction: column;
@@ -64,17 +80,9 @@ h1 {
     color: #D8DDE3;
 }
 
-/* div class="movie">
-        // <div class="card"
-          <div class="card-image">
-            <img class= "poster" src="${sorprise.poster()}">
-            <span class="card-title grey lighten-4">${sorprise.getTitle()}</span>
-          </div>
-        // </div> */
 .movie{
     width: 450px;
     height: 120px;
-    /* position: absolute; */
     margin-bottom: 30px;
     padding-top: 10px;
     padding-bottom: 1px;
@@ -82,9 +90,7 @@ h1 {
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-    /* float: left; */
     flex-wrap: nowrap;
-    font-family: Courier, "Lucida Console", monospace;
 }
 .movie:hover{
     background-color:#363B41;
@@ -92,7 +98,6 @@ h1 {
 .poster{
     width: 50px;
     height: 65px;
-    /* position: relative; */
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -102,7 +107,6 @@ h1 {
 }
 
 .title{
-    /* font-family: Courier, "Lucida Console", monospace; */
     width: 374px;;
     font-size: 18px;
     padding-left: 30px;
@@ -138,24 +142,17 @@ h1 {
     width: 450px;
     height: 950px;
     margin-top: 17px;
-    /* margin-left: 600px; */
     background-color:#2B3036;
     display: flex;
-    /* position: absolute; */
     border-radius: 5px;
     overflow: scroll;
     scrollbar-width: none;
 }
 
-
-
-/* estilos Detail */
+/* styles detail */
 
 .info{
-    font-family: Courier, "Lucida Console", monospace;
-    color: #D8DDE3;
-
-    
+    color: #D8DDE3;  
 }
 .relevant_info{
     height: 180px;
@@ -225,4 +222,55 @@ h1 {
     justify-content: flex-end;
     align-items: flex-start;
     margin-left: -132px;
+}
+
+
+.whish_list{
+    width: 490px;
+    height: 80px;
+    background-color: darkgray;
+    display: table-row;
+}
+.whish_list>p{
+    font-weight: bold;
+    font-size: 18px;
+}
+.list_ranking{
+    list-style: none;
+    display: inline-flex;
+    margin-top: -10px;
+}
+.list{
+    /* width: 10px; */
+}
+
+.favorite_movies{
+    list-style: none;
+    display: grid;
+    align-content: space-around;
+    justify-content: start;
+    align-items: start;
+    justify-items: start;
+    color: #D8DDE3;  
+}
+
+.favorite{
+    display: inline-flex;
+    flex-direction: row;
+    align-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    & .title{
+        font-size: 13px;
+        font-weight: 700;
+    }
+}
+
+.delete{
+    border: none;
+    border-radius: 10%;
+    background-color: rgb(226, 81, 81);
+    text-align: center;
+    align-content: center;
+    /* line-height: 1px; */
 }
