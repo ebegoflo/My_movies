@@ -11,6 +11,7 @@ function validateSearch(event) {
     if (key == 'Backspace' && value.length == 0 ) {
         document.querySelector('.show_results').innerHTML = '';
         document.querySelector('.counter').innerHTML = '0'
+        wishList();
     }
    
     if (value.length >=3) {
@@ -18,7 +19,7 @@ function validateSearch(event) {
     }
 }
 
-let whisList = () => {
+let wishList = () => {
     let favoritesMovies= 
         `<div class="whish_list">
             <p>MOVIES YOU WATCHED</p>
@@ -32,10 +33,10 @@ let whisList = () => {
     
     const list = document.querySelector('.my_movies');
     list.innerHTML = favoritesMovies;
-    evalWhisList();
+    evalWishList();
 }
 
-let evalWhisList = () =>{
+let evalWishList = () =>{
     const containerList = document.querySelector('.favorite_movies');
     let listFavoritesMovies = JSON.parse(sessionStorage.getItem("movies"));
     console.log(Array.isArray(listFavoritesMovies))
@@ -54,6 +55,6 @@ let evalWhisList = () =>{
       });
 }
 
-whisList();
+wishList();
 
-export {whisList}
+export {wishList,evalWishList}

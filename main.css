@@ -1,18 +1,18 @@
 
 body{
     margin : 0;
-    background-color:rgb(43, 39, 43);
+    background-color:rgb(27, 26, 27);
     font-family: Courier, "Lucida Console", monospace;
 }
 header {
     align-items: center;
     align-content: center;
-    color:violet; 
+    color:rgb(54, 72, 237); 
     display: flex;
     height: 70px;
     justify-items: center;
     width: 100%;
-    background-color:#DDA0DD;
+    background-color:rgb(54, 72, 237);
     margin: 0;
     padding: 0;
     justify-content: space-between;
@@ -51,7 +51,7 @@ h1 {
 .container_results{
     width: 100%;
     height: 100%;
-    background-color:#23252A;
+    background-color:#e5e8f1;
     display: flex;
     justify-content: center;
     align-content: space-between;
@@ -67,7 +67,7 @@ h1 {
     height: 950px;
     margin-top: 27px;
     margin-right: 20px;
-    background-color:#2B3036;
+    background-color:#d6e3f3;
     display: flex;
     border-radius: 5px;
     list-style: none;
@@ -77,7 +77,7 @@ h1 {
     align-items: stretch;
     overflow: scroll;
     scrollbar-width: none;
-    color: #D8DDE3;
+    color: #0f2138;
 }
 
 .movie{
@@ -91,9 +91,11 @@ h1 {
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: nowrap;
+    transition: background-color 0.5s;
 }
 .movie:hover{
-    background-color:#363B41;
+    background-color:#2e67ae;
+    color: #d6e3f3;
 }
 .poster{
     width: 50px;
@@ -142,7 +144,7 @@ h1 {
     width: 450px;
     height: 950px;
     margin-top: 17px;
-    background-color:#2B3036;
+    background-color:#d6e3f3;
     display: flex;
     border-radius: 5px;
     overflow: scroll;
@@ -170,12 +172,30 @@ h1 {
     align-items: stretch;
 }
 
+.description{
+    color: #0f2138;
+}
+
+.add{
+    width: 155px;
+    height: 30px;
+    margin-left: 15px;
+    border-radius: 25px;
+    background-color: #96abc5;
+    border-style: none;
+    transition: background-color 0.5s;
+}
+
+.add:hover{
+    background-color:#3e57e4;
+}
+
 .movie_title{
     padding-left: 30px;
     width: 280px;
     height: 220px;
     font-size:23px;
-    display: flex;
+    /* display: flex; */
     font-weight: bold;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -185,11 +205,11 @@ h1 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
 }
 
 .released{
-    width: 178px;
+    width: 198px;
     font-size:15px;
     display: flex;
     flex-direction: column;
@@ -203,7 +223,7 @@ h1 {
 
 .genre{
     font-size:15px;
-    width: 131px;
+    width: 198px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -214,7 +234,7 @@ h1 {
 }
 .rating_movie{
     font-size:15px;
-    width: 150px;
+    width: 198px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -228,7 +248,7 @@ h1 {
 .whish_list{
     width: 490px;
     height: 80px;
-    background-color: darkgray;
+    background-color: rgb(79, 109, 133);
     display: table-row;
 }
 .whish_list>p{
@@ -251,18 +271,20 @@ h1 {
     justify-content: start;
     align-items: start;
     justify-items: start;
-    color: #D8DDE3;  
+    color: #101c2b;  
 }
 
 .favorite{
-    display: inline-flex;
+    display: flex;
     flex-direction: row;
-    align-content: flex-end;
-    justify-content: space-between;
-    align-items: center;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: nowrap;
     & .title{
         font-size: 13px;
         font-weight: 700;
+        width: 425px;
     }
 }
 

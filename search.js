@@ -58,7 +58,6 @@ let createMovieDetail = (e,i) =>{
       getDetail(focusMovie.imdbID);
       return focusMovie;
     }
-    
   }
 }
 

@@ -1,4 +1,4 @@
-import {whisList} from './app.js'
+import {wishList} from './app.js'
 
 const container = document.querySelector('.my_movies');
 let url = "http://www.omdbapi.com/?apikey=16f0c127";
@@ -35,22 +35,22 @@ function createTemplate(movie) {
         </div>
         <ul>
         <li class="star">
-            <i class= "fa fa-star">
+            <i class= "fa fa-star"></i>
          </li>
          <li class="star">
-            <i class= "fa fa-star">
+            <i class= "fa fa-star"></i>
          </li>
            <li class="star">
-          <i class= "fa fa-star">
+          <i class= "fa fa-star"></i>
           </li>
         <li class="star">
-         <i class= "fa fa-star">
+         <i class= "fa fa-star"></i>
         </li>
         <li class="star">
-          <i class= "fa fa-star">
+          <i class= "fa fa-star"></i>
         </li>
         </ul>
-        ${paintButton ? '': `<button>Add to favorites</button>` }
+        ${paintButton ? '': `<button class='add'>Add to favorites</button>` }
       </div>`;
 
   container.innerHTML = description;
@@ -80,7 +80,7 @@ let addToWhishList = (e, movie) =>{
 
 let updateList = () =>{
   sessionStorage.setItem("movies", JSON.stringify(moviesList));
-  whisList();
+  wishList();
   
 }
 let validatePaintButton  = (movie)=>{
